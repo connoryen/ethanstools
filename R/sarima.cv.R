@@ -1,5 +1,10 @@
 #' time series cross validation on multiple SARIMA models
 #' 
+#' @param x data
+#' 
+#' @importFrom astsa sarima.for
+#' 
+#' @export
 sarima.cv <- function(x, models = c(p=0,d=0,q=1), 
                       n.frames = 10, n.points = 5) {
   # CHECK INPUT:
@@ -16,16 +21,17 @@ sarima.cv <- function(x, models = c(p=0,d=0,q=1),
   }
   # HELPER FUNCTION:
   # ----------------------------------------------------------------------------
-  #' astsa::sarima.for wrapper to accommodate vector order input. 
-  #' 
-  #' Pass a SARIMA(p,d,q)x(P,D,Q)[S] model specified by a vector with 3 
-  #' elements: c(p,d,q), or a vector with 7 elements: c(p,d,q, P,D,Q,S) to 
-  #' astsa::sarima.for.
-  #' 
-  #' @param x time series data
-  #' @param ord vector of SARIMA orders
-  #' 
-  #' @return vector of predictions
+  # astsa::sarima.for wrapper to accommodate vector order input. 
+  # 
+  # Pass a SARIMA(p,d,q)x(P,D,Q)[S] model specified by a vector with 3 
+  # elements: c(p,d,q), or a vector with 7 elements: c(p,d,q, P,D,Q,S) to 
+  # astsa::sarima.for.
+  # 
+  # @param x time series data
+  # @param ord vector of SARIMA orders
+  # 
+  # @return vector of predictions
+  #
   to.sarima.for <- function(x, ord, n.ahead) {
     if (length(ord) == 3){  # ARIMA(p,d,q)
       return(astsa::sarima.for(xdata = x, n.ahead = n.ahead, plot = FALSE,

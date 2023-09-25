@@ -13,6 +13,15 @@
 #' @return list of fitted ACF, PACF, Ljung-Box Statistic p-values, and spectral
 #' density of the fitted ARIMA model. 
 #' 
+#' @import dplyr
+#' @importFrom astsa sarima
+#' @importFrom astsa mvspec
+#' @importFrom stats Box.test
+#' @importFrom stats ARMAacf
+#' @importFrom stats acf
+#' @importFrom stats pacf
+#' 
+#' @export
 sarima.compare1 <- function(x, model = c(p=0,d=0,q=1), ref = c(p=0,d=0,q=0),  
                             max.lag = 15, plot = TRUE) {
   # CHECK INPUT:

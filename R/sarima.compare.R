@@ -13,6 +13,14 @@
 #' 
 #' @return For the fitted ARIMA models, list of theoretical ACF/PACF values, 
 #' theoretical spectral density values, and Ljung-Box Statistic p-values.
+#' 
+#' @importFrom astsa sarima
+#' @importFrom astsa mvspec
+#' @importFrom stats Box.test
+#' @importFrom stats acf
+#' @importFrom stats pacf
+#' 
+#' @export
 sarima.compare <- function(x, models = c(p=0,d=0,q=1), ref = c(p=0,d=0,q=0),
                            max.lag = 15, plot = TRUE, 
                            model.colors = c("dodgerblue", "hotpink")) {
@@ -102,7 +110,7 @@ sarima.compare <- function(x, models = c(p=0,d=0,q=1), ref = c(p=0,d=0,q=0),
     for (i in c(1:length(models))) {
       par(new = TRUE)
       plot(my.models[[i]]$spec.theoretical$freq, my.models[[i]]$spec.theoretical$spec, 
-           xaxt = "n", yaxt = "n", ylab = '', xlab = , 
+           xaxt = "n", yaxt = "n", ylab = '', xlab = '', 
            main = "", type = "l", lwd = 2, col = my.colors[i])
     }
     mtext(substitute(bold("Spectral Density")), side=3)

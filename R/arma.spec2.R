@@ -10,6 +10,10 @@
 #' @param ... additional graphical parameters
 #'
 #' @return frequencies and spectral ordinates of inputted ARMA process
+#' 
+#' @importFrom astsa tsplot
+#' 
+#' @export
 arma.spec2 <- function(ar=0, ma=0, var.noise=1, n.freq=500, plot = FALSE, 
                        main='from specified model', frequency=1, ylim=NULL, ...) {
   check <- 0
