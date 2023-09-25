@@ -23,16 +23,10 @@ sarima.compare1(
 Ljung-Box Statistic plots.}
 
 \item{plot}{plots diagnostic}
-
-\item{a}{vector of coefficients for first polynomial}
-
-\item{b}{vector of coefficients for second polynomial}
 }
 \value{
 list of fitted ACF, PACF, Ljung-Box Statistic p-values, and spectral
 density of the fitted ARIMA model.
-
-vector of coefficients of product of inputs
 }
 \description{
 Plots ACF/PACF, Ljung-Box Statistic p-values, and spectral density of the

@@ -58,14 +58,15 @@ sarima.compare1 <- function(x, model = c(p=0,d=0,q=1), ref = c(p=0,d=0,q=0),
   if((d_ref != d) | (D_ref != D) | (S_ref != S)){
     warning("difference or seasonality values are not equal between model and ref")
   }
+  
   # HELPER FUNCTION:
   # ----------------------------------------------------------------------------
-  #' Multiply two polynomials
-  #' 
-  #' @param a vector of coefficients for first polynomial
-  #' @param b vector of coefficients for second polynomial
-  #' 
-  #' @return vector of coefficients of product of inputs
+  # Multiply two polynomials
+  # 
+  # @param a vector of coefficients for first polynomial
+  # @param b vector of coefficients for second polynomial
+  # 
+  # @return vector of coefficients of product of inputs
   mult_poly <- function(a, b){
     m <- outer(a, b)
     return(as.vector(tapply(m, row(m) + col(m), sum)))
