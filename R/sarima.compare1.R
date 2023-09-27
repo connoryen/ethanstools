@@ -82,7 +82,7 @@ sarima.compare1 <- function(x, model = c(p=0,d=0,q=1), ref = c(p=0,d=0,q=0),
                      details=FALSE, model=FALSE)
   # AR & MA components:
   # ----------------------------------------------------------------------------
-  coefs <- data.table(coef = m$fit$coef, param = names(m$fit$coef))
+  coefs <- data.frame(coef = m$fit$coef, param = names(m$fit$coef))
   
   # get ar parameters
   ars <- coefs %>%
