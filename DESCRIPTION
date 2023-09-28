@@ -3,7 +3,7 @@ Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
 Author: Connor Ethan yen 
-Maintainer: connor.yen@berkeley.edu
+Maintainer: Connor Ethan Yen <connor.yen@berkeley.edu>
 Description: Package to assist with the development of time series models. 
     In particular, the construction of seasonal ARIMA models. 
 License: GNU General Public License
